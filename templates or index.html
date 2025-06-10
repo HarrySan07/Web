@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TeraBox Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>TeraBox to MX Player Converter</h1>
+        <form method="POST" action="/" enctype="application/x-www-form-urlencoded">
+            <input type="text" name="terabox_link" placeholder="Paste your TeraBox link here..." required>
+            <button type="submit">Convert Link</button>
+        </form>
+        {% if mxplayer_link %}
+            <div class="result">
+                <h2>Converted Links</h2>
+                <p><strong>Play Online:</strong> <a href="{{ mxplayer_link }}" target="_blank">{{ mxplayer_link }}</a></p>
+                <p><strong>Download:</strong> <a href="{{ download_link }}" target="_blank">{{ download_link }}</a></p>
+                <p><em>A download link has been sent to your Telegram bot.</em></p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+  </html>
